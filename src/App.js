@@ -25,10 +25,13 @@ function App() {
     fetchApi();
   }, [search])
 
+  const dateNTime = new Date().toString();
   return(
     <div className="container-fluid">
 <div className="row main-template">
+  
   <div className="col-lg-8 left-column">
+   <h6 className="date">{dateNTime}</h6> 
 <div className="row left-column-row">
   <div className="col-lg-2">
 
