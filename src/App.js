@@ -18,8 +18,14 @@ function App() {
 
       const resJson = await response.json();
 
-      setCity(resJson.main);
-      console.log(resJson.main);
+      if(resJson.main!=undefined){
+        setCity(resJson.main);
+        console.log(resJson.main);
+      }
+      else {
+        alert("City not found!")
+      }
+    
     };
  
     fetchApi();
