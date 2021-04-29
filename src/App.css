@@ -9,6 +9,13 @@ background-size: cover;
 .main-template {
     padding: 0px;
 }
+.date {
+    text-align: center;
+    background-color: grey;
+    opacity: .7;
+    position: relative;
+    left: 1%;
+}
 .left-column {
     color: white;
     height: 38em;
@@ -20,7 +27,8 @@ background-size: cover;
     opacity: .7;
 }
 .left-column-row {
-    margin-top: 50%;
+    position: relative;
+    top: 60%;
 }
 .left-column > .row > div{
 }
