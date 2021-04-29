@@ -9,6 +9,7 @@ function App() {
 
   const [temporary, setTemporary] = useState("");
   const [search, setSearch] = useState("Mumbai"); 
+  const [flag, setFlag] = useState(1);
 
   useEffect(() => {
     const fetchApi = async()=> {
@@ -21,9 +22,11 @@ function App() {
       if(resJson.main!=undefined){
         setCity(resJson.main);
         console.log(resJson.main);
+        setFlag(1);
       }
       else {
         alert("City not found!")
+        setFlag(0);
       }
     
     };
@@ -43,13 +46,13 @@ function App() {
 
   </div>
   <div className="col-lg-3 temperature"> 
-  { !city.temp? (<span>__°C</span>): (<span>{city.temp}°C</span>)}
+  { flag==0? (<span>__°C</span>): (<span>{city.temp}°C</span>)}
    </div>
     <div className="col-lg-2 weather-location">
    {search}
     </div>
     <div className="col-lg-2 weather-condition">
-      {!city.humidity? (<span>Humidity:_</span>):(<span>Humidity:{city.humidity}</span>)}
+      {flag==0? (<span>Humidity:_</span>):(<span>Humidity:{city.humidity}</span>)}
         </div>
     <div className="col-lg-3">
     
@@ -76,10 +79,10 @@ function App() {
     <div className="row weather-details">
     <ul>
    <h5 className="weather-details-header">Weather Details</h5>
-     <li>Humidity: {city.humidity}</li>
-     <li>Pressure: {city.pressure}</li>
-     <li>Max Temperature: {city.temp_max} °C</li>
-     <li>Min Temperature: {city.temp_min} °C</li>
+     <li>Humidity: {flag==0? <span>_</span>:<span>{city.humidity}</span>}</li>
+     <li>Pressure:  {flag==0? <span>_</span>:<span>{city.pressure}</span>}</li>
+     <li>Max Temperature:  {flag==0? <span>_</span>:<span>{city.temp_max}</span>}°C</li>
+     <li>Min Temperature:  {flag==0? <span>_</span>:<span>{city.temp_min}</span>}°C</li>
    </ul>
     </div>
   </div>
