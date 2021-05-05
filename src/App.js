@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from 'react'
-import {AiOutlineSearch} from 'react-icons/ai'
+// import {AiOutlineSearch} from 'react-icons/ai'
 
 function App() {
 
@@ -51,7 +51,7 @@ function App() {
   { flag==0? (<span>__°C</span>): (<span>{city.temp}°C</span>)}
    </div>
     <div className="col-md-2 weather-location">
-   {search}
+   {search.toUpperCase()}
     </div>
     <div className="col-md-2 weather-condition">
       {flag==0? (<span>Humidity:_</span>):(<span>Humidity:{city.humidity}</span>)}
