@@ -35,13 +35,18 @@ function App() {
     fetchApi();
   }, [search])
 
-  const dateNTime = new Date().toString();
+  const monthName = ["January", "February", "March", "April",
+  "May", "June", "July", "August", "September", "October","November", "December"];
+  const weekDay = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dateDay = new Date().getDate().toString();
+  const dateMonth = new Date().getUTCMonth();
+  const day = new Date().getDay();
   return(
     <div className="container-fluid">
 <div className="row main-template">
   <div className="col-md-8 left-column">
     <div className="row left-column-upper">
-      <div className="col-md-12"> <h6 className="date">{dateNTime}</h6> </div>
+      <div className="col-md-12"> <h6 className="date">{dateDay} {monthName[dateMonth]}, {weekDay[day]}</h6> </div>
     </div>
 <div className="row left-column-lower">
   <div className="col-md-2">
@@ -54,7 +59,7 @@ function App() {
    {search}
     </div>
     <div className="col-md-2 weather-condition">
-{<span> {city.humidity}</span>}
+{<span> Humidity:{city.humidity}</span>}
         </div>
     <div className="col-md-3">
     
