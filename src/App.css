@@ -18,7 +18,6 @@ background-size: cover;
 }
 .left-column {
     color: white;
-    height: 38em;
 }
 .right-column {
     color: white;
@@ -30,12 +29,12 @@ background-size: cover;
 }
 .left-column-upper >div  {
     padding: 0px;
- margin: 0px;
+    margin: 0px;
 }
-.left-column-lower {
-    position: relative;
-    top: 50%;
+.left-column-middle {
+    height: 25em;
 }
+
 .left-column > .row > div{
 }
 .temperature {

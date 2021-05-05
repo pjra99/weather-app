@@ -48,6 +48,11 @@ function App() {
     <div className="row left-column-upper">
       <div className="col-md-12"> <h6 className="date">{dateDay} {monthName[dateMonth]}, {weekDay[day]}</h6> </div>
     </div>
+    <div className="row">
+      <div className="col-md-12 left-column-middle">
+
+      </div>
+    </div>
 <div className="row left-column-lower">
   <div className="col-md-2">
 
