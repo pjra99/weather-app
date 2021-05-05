@@ -9,6 +9,7 @@ function App() {
 
   const [temporary, setTemporary] = useState("");
   const [search, setSearch] = useState("Mumbai"); 
+  const [flag, setFlag] = useState(1);
 
   useEffect(() => {
     const fetchApi = async()=> {
@@ -18,37 +19,50 @@ function App() {
 
       const resJson = await response.json();
 
-      setCity(resJson.main);
-      console.log(resJson.main);
+      if(resJson.main!=undefined){
+        setCity(resJson.main);
+        console.log(resJson.main);
+        setFlag(1);
+      }
+      else {
+        setFlag(0);
+        alert("City not found!")
+        
+      }
+    
     };
  
     fetchApi();
   }, [search])
 
+  const dateNTime = new Date().toString();
   return(
     <div className="container-fluid">
 <div className="row main-template">
-  <div className="col-lg-8 left-column">
-<div className="row left-column-row">
-  <div className="col-lg-2">
+  <div className="col-md-8 left-column">
+    <div className="row left-column-upper">
+      <div className="col-md-12"> <h6 className="date">{dateNTime}</h6> </div>
+    </div>
+<div className="row left-column-lower">
+  <div className="col-md-2">
 
   </div>
-  <div className="col-lg-3 temperature"> 
-  { !city.temp? (<span>__°C</span>): (<span>{city.temp}°C</span>)}
+  <div className="col-md-3 temperature"> 
+  { flag==0? (<span>__°C</span>): (<span>{city.temp}°C</span>)}
    </div>
-    <div className="col-lg-2 weather-location">
+    <div className="col-md-2 weather-location">
    {search}
     </div>
-    <div className="col-lg-2 weather-condition">
-      {!city.humidity? (<span>Humidity:_</span>):(<span>Humidity:{city.humidity}</span>)}
+    <div className="col-md-2 weather-condition">
+      {flag==0? (<span>Humidity:_</span>):(<span>Humidity:{city.humidity}</span>)}
         </div>
-    <div className="col-lg-3">
+    <div className="col-md-3">
     
     </div>
 </div>
 
   </div>
-  <div className="col-lg-4  right-column">
+  <div className="col-md-4  right-column">
     <div className="row locations">
     <input type="text" name="city" className="search-city" onChange={(event)=>{
       setTemporary(event.target.value)
@@ -67,10 +81,10 @@ function App() {
     <div className="row weather-details">
     <ul>
    <h5 className="weather-details-header">Weather Details</h5>
-     <li>Humidity: {city.humidity}</li>
-     <li>Pressure: {city.pressure}</li>
-     <li>Max Temperature: {city.temp_max} °C</li>
-     <li>Min Temperature: {city.temp_min} °C</li>
+     <li>Humidity: {flag==0? <span>_</span>:<span>{city.humidity}</span>}</li>
+     <li>Pressure:  {flag==0? <span>_</span>:<span>{city.pressure}</span>}</li>
+     <li>Max Temperature:  {flag==0? <span>_</span>:<span>{city.temp_max}</span>}°C</li>
+     <li>Min Temperature:  {flag==0? <span>_</span>:<span>{city.temp_min}</span>}°C</li>
    </ul>
     </div>
   </div>

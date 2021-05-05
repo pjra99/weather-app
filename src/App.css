@@ -9,18 +9,32 @@ background-size: cover;
 .main-template {
     padding: 0px;
 }
+.date {
+    text-align: center;
+    background-color: grey;
+    opacity: .7;
+    position: relative;
+    left: 1%;
+}
 .left-column {
     color: white;
     height: 38em;
 }
 .right-column {
     color: white;
-    height: 38em;
     background-color: #687980;
     opacity: .7;
 }
-.left-column-row {
-    margin-top: 50%;
+.left-column {
+    margin: 0px;
+}
+.left-column-upper >div  {
+    padding: 0px;
+ margin: 0px;
+}
+.left-column-lower {
+    position: relative;
+    top: 50%;
 }
 .left-column > .row > div{
 }
@@ -29,16 +43,19 @@ background-size: cover;
     font-weight: bold;
     position: relative;
       top: -1em;
+      text-align: center;
 }
 .weather-location {
  font-size: 20px;
  position: relative;
  top: -.5em;
+ text-align: center;
 }
 .weather-condition {
     font-size: 20px;
     position: relative;
     top: -.5em;
+    text-align: center;
 }
 .search-city {
     background: none;
@@ -54,24 +71,4 @@ background-size: cover;
     background: none;
     border: none;
     font-weight: bold;
-
-}
-.location: {
-    position: relative;
-    top: -5%;
-}
-.weather-details {
-    position: relative;
-    top: -12%;
-    margin-bottom: -20px;
-    /* padding-bottom: ; */
-}
-
-.weather-details-header {
-    border-top: 1px solid white;
-    padding-bottom: 0px;
-    margin-top: 2em;
-    padding-left: 6%;
-    position: relative;
-    right: 3%;
 }
