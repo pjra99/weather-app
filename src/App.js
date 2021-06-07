@@ -1,6 +1,5 @@
 import './App.css';
 import React, {useEffect, useState} from 'react'
-import {AiOutlineSearch} from 'react-icons/ai'
 
 function App() {
 
@@ -19,9 +18,8 @@ function App() {
 
       const resJson = await response.json();
 
-      if(resJson.main!=undefined){
+      if(resJson.main!==undefined){
         setCity(resJson.main);
-        console.log(resJson.main);
         setFlag(1);
       }
       else {
@@ -58,7 +56,7 @@ function App() {
 
   </div>
   <div className="col-md-3 temperature"> 
-  { flag==0? (<span>__°C</span>): (<span>{city.temp}°C</span>)}
+  { flag===0? (<span>__°C</span>): (<span>{city.temp}°C</span>)}
    </div>
     <div className="col-md-2 weather-location">
    {search}
@@ -79,7 +77,9 @@ function App() {
     }} placeholder="Search city" />
     <button className="getWeather" onClick={()=>{
       setSearch(temporary);
-    }}>Go</button>
+    }}>Go 
+    {/* <AiOutlineSearch /> */}
+    </button>
 <ul>  
   <li onClick={()=>setSearch("Delhi")}>Delhi </li>
   <li onClick={()=>setSearch("Mumbai")}>Mumbai</li>
@@ -91,10 +91,10 @@ function App() {
     <div className="row weather-details">
     <ul>
    <h5 className="weather-details-header">Weather Details</h5>
-     <li>Humidity: {flag==0? <span>_</span>:<span>{city.humidity}</span>}</li>
-     <li>Pressure:  {flag==0? <span>_</span>:<span>{city.pressure}</span>}</li>
-     <li>Max Temperature:  {flag==0? <span>_</span>:<span>{city.temp_max}</span>}°C</li>
-     <li>Min Temperature:  {flag==0? <span>_</span>:<span>{city.temp_min}</span>}°C</li>
+     <li>Humidity: {flag===0? <span>_</span>:<span>{city.humidity}</span>}</li>
+     <li>Pressure:  {flag===0? <span>_</span>:<span>{city.pressure}</span>}</li>
+     <li>Max Temperature:  {flag===0? <span>_</span>:<span>{city.temp_max}</span>}°C</li>
+     <li>Min Temperature:  {flag===0? <span>_</span>:<span>{city.temp_min}</span>}°C</li>
    </ul>
     </div>
   </div>
